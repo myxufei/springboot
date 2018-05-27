@@ -1,10 +1,13 @@
 package com.controller.memeber;
 
+import org.apache.shiro.authc.IncorrectCredentialsException;
+import org.apache.shiro.authc.UnknownAccountException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.controller.BaseController;
+import com.entry.member.User;
 import com.util.ReponseJson;
 import com.util.ResultEnum;
 import com.util.ShiroUtil;
@@ -14,16 +17,7 @@ import com.util.ShiroUtil;
 public class UserController extends BaseController{
 
 
-	@RequestMapping("/logout")
-	@ResponseBody
-	public ReponseJson logout() {
-		try {
-			ShiroUtil.logout();
-			return returnResult(ResultEnum.SUCCESS);
-		}catch (Exception e) {
-			// TODO: handle exception
-			return returnResult(ResultEnum.ERROR);
-		}
-	}
+
+
 	
 }

@@ -15,37 +15,35 @@ import com.entry.member.User;
 import com.service.UserService;
 
 @Controller
+@RequestMapping("/index")
 public class IndexController {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
-
-    @Autowired
-    UserService service;
-    @RequestMapping
+    @RequestMapping("/index")
     public String index(Model model) {
         return "index";
     }
 
-    @RequestMapping(value = "/test",method = {RequestMethod.GET})
-    public String test(Model model){
-        logger.debug("This is a debug message");
-        logger.info("This is an info message");
-        logger.warn("This is a warn message");
-        logger.error("This is an error message");
-
-        User user=service.selectByUser("flyshy");
-        logger.info(user.getPassword());
-
-        long rq = System.currentTimeMillis();
-        System.out.println(rq);
-        model.addAttribute("rq", rq);
-        return "test/test";
-    }
-
-    @ResponseBody
-    @RequestMapping(value = "/testPost",method = {RequestMethod.POST})
-    public String testpost(HttpServletRequest request){
-        return request.getParameter("rq");
-    }
+//    @RequestMapping(value = "/test",method = {RequestMethod.GET})
+//    public String test(Model model){
+//        logger.debug("This is a debug message");
+//        logger.info("This is an info message");
+//        logger.warn("This is a warn message");
+//        logger.error("This is an error message");
+//
+//        User user=service.selectByUser("flyshy");
+//        logger.info(user.getPassword());
+//
+//        long rq = System.currentTimeMillis();
+//        System.out.println(rq);
+//        model.addAttribute("rq", rq);
+//        return "test/test";
+//    }
+//
+//    @ResponseBody
+//    @RequestMapping(value = "/testPost",method = {RequestMethod.POST})
+//    public String testpost(HttpServletRequest request){
+//        return request.getParameter("rq");
+//    }
 
 
 

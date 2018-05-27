@@ -36,10 +36,11 @@ public class ShiroConfig {
     	ShiroFilterFactoryBean filter=new ShiroFilterFactoryBean();
     	filter.setSecurityManager(securityManager);
     	Map<String,String> map=new HashMap<String,String>();
-    	map.put("/**/login", "anon");
-    	map.put("/**/logout", "logout");
-    	map.put("/**/reg", "anon");
-    	map.put("/member/**", "user");
+//    	map.put("/assets/*/**", "anon");
+//    	map.put("/**/login", "anon");
+//    	map.put("/**/logout", "logout");
+//    	map.put("/**/reg", "anon");
+//    	map.put("/member/**", "user");
     	filter.setFilterChainDefinitionMap(map);
     	return filter;
     }

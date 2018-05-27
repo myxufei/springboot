@@ -1,6 +1,8 @@
 spring:
   profiles:
      active: dev
+  thymeleaf:
+      cache: false  
   mapper: 
      plugin: tk.mybatis.mapper.generator.MapperPlugin
      Mapper: com.util.CustomerMapper

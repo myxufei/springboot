@@ -14,16 +14,21 @@ import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.entry.member.User;
+import com.mapper.RoleMapper;
 import com.service.UserService;
 
 public class UserRealm extends AuthorizingRealm{
     @Autowired
 	UserService service;
+    @Autowired
+    RoleMapper roleMapper;
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
 		// TODO Auto-generated method stub
 		SimpleAuthorizationInfo info=new SimpleAuthorizationInfo();
-		
+		String userName=(String)principals.getPrimaryPrincipal();
+		info.setRoles(roleMapper.selectByUserName(userName));
+		info.setStringPermissions(roleMapper.selectPermissionByUserName(userName));
 		return info;
 	}
 
